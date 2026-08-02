@@ -1,0 +1,7 @@
+# security.txt file for https://bishopfox.com/ - more info: https://securitytxt.org/
+# Contact email address for security issues
+Contact: security@bishopfox.com
+# Expiration date for the security information herein
+Expiration: 2025-12-31T00:00:00-08:00
+# Privacy policy page:
+Policy: https://bishopfox.com/privacy-statement

@@ -1,0 +1,118 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.brinqa.com/docs/connectors/bishopfox/
+also_source: https://docs.axonius.com/docs/bishop-fox-adapter
+api: Bishop Fox Cosmos API (v5)
+note: >-
+  Bishop Fox publishes no OpenAPI, so this entity graph is NOT derived from schema $refs. It records only the
+  Cosmos v5 resources that published third-party connector documentation names, with the resource path each
+  one is served from. Relationships are the attack-surface containment relationships those resources
+  describe; each carries an explicit confidence, and no field names or schemas are asserted because none are
+  published.
+entities:
+- name: Domain
+  resource: /v5/asset-view/domains
+  description: Registrable domains attributed to the customer organization.
+  confidence: high
+- name: Subdomain
+  resource: /v5/asset-view/subdomains
+  description: Subdomains discovered beneath attributed domains.
+  confidence: high
+- name: DnsRecord
+  resource: /v5/asset-view/dns-records
+  description: DNS records observed for attributed domains and subdomains.
+  confidence: high
+- name: Network
+  resource: /v5/asset-view/networks
+  description: Network ranges (CIDR blocks) attributed to the organization.
+  confidence: high
+- name: IpAddress
+  resource: /v5/asset-view/ip-addresses
+  description: Individual IP addresses in the external attack surface.
+  confidence: high
+  note: >-
+    Brinqa records this endpoint as functional but absent from the Bishop Fox API documentation available to
+    them.
+- name: Port
+  resource: /v5/asset-view/ports
+  description: Open ports observed on discovered IP addresses.
+  confidence: high
+  note: >-
+    Brinqa records this endpoint as functional but absent from the Bishop Fox API documentation available to
+    them.
+- name: IpService
+  resource: /v5/asset-view/ip-services
+  description: Services identified on an IP address / port pair.
+  confidence: high
+- name: HostnameService
+  resource: /v5/asset-view/hostname-services
+  description: Services identified against a hostname (web applications and similar).
+  confidence: high
+- name: Finding
+  resource: /v5/findings
+  description: Operator-validated findings, together with their finding definitions.
+  confidence: high
+- name: Activity
+  resource: /v5/activities
+  description: >-
+    Platform activity / security threat events. Axonius documents this as a v5-only endpoint that must be
+    enabled in advanced settings to retrieve Cosmos threat data.
+  confidence: medium
+relationships:
+- from: Domain
+  to: Subdomain
+  kind: has_many
+  via: domain attribution
+  confidence: high
+- from: Domain
+  to: DnsRecord
+  kind: has_many
+  via: DNS zone
+  confidence: high
+- from: Subdomain
+  to: DnsRecord
+  kind: has_many
+  via: DNS resolution
+  confidence: medium
+- from: Network
+  to: IpAddress
+  kind: has_many
+  via: CIDR containment
+  confidence: high
+- from: IpAddress
+  to: Port
+  kind: has_many
+  via: port scan on host
+  confidence: high
+- from: Port
+  to: IpService
+  kind: has_one
+  via: service fingerprint on ip/port
+  confidence: high
+- from: Subdomain
+  to: HostnameService
+  kind: has_many
+  via: service fingerprint on hostname
+  confidence: medium
+- from: Finding
+  to: IpService
+  kind: belongs_to
+  via: affected asset
+  confidence: medium
+- from: Finding
+  to: HostnameService
+  kind: belongs_to
+  via: affected asset
+  confidence: medium
+gaps:
+- No published schemas, field names, id formats, or id prefixes — the object reference is portal-gated.
+- >-
+  The set of resources above is what third-party connectors exercise; the Cosmos API may expose more that no
+  public source names.
+x-evidence:
+- url: https://docs.brinqa.com/docs/connectors/bishopfox/
+  http_status: 200
+  fetched: '2026-08-02'
+- url: https://docs.axonius.com/docs/bishop-fox-adapter
+  http_status: 200
+  fetched: '2026-08-02'

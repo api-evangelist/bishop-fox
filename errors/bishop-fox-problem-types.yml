@@ -1,0 +1,62 @@
+generated: '2026-08-02'
+method: probed
+source: live probes of https://api.cosmos.bishopfox.com (2026-08-02)
+api: Bishop Fox Cosmos API (v5)
+format: proprietary-json
+rfc9457: false
+envelope:
+  content_type: application/json
+  shape: '{"message": "<string>"}'
+  fields:
+  - name: message
+    type: string
+    description: Human-readable error reason. No machine-readable code, type URI, or detail field observed.
+note: >-
+  Bishop Fox publishes no OpenAPI and no public error reference for the Cosmos v5 API, so this catalog is
+  NOT derived from a spec — it records only error responses observed directly on the live API by anonymous
+  probe. It is therefore a partial catalog covering the unauthenticated failure modes; authenticated 4xx/5xx
+  semantics require a Cosmos customer token to enumerate. Nothing here is inferred.
+problems:
+- status: 401
+  title: Unauthorized
+  body: '{"message":"Unauthorized"}'
+  meaning: >-
+    The request carried no Authorization header, or a token that is missing/expired/lacks the cosmos_public
+    audience. Every /v5/* resource returns this to an anonymous caller.
+  remediation: >-
+    Exchange the Cosmos API key and secret for an access token at https://bishopfox.auth0.com/oauth/token
+    with audience cosmos_public, then send Authorization: Bearer <token>.
+  observed_on:
+  - https://api.cosmos.bishopfox.com/v5/findings
+  - https://api.cosmos.bishopfox.com/v5/asset-view/domains
+- status: 404
+  title: Not Found
+  body: '{"message":"Not Found"}'
+  meaning: >-
+    No route matches the requested path. The gateway returns this for unknown paths ahead of authentication,
+    so a 404 does not imply the caller is authenticated.
+  remediation: Check the /v5/ path prefix and resource name against the in-portal Cosmos API reference.
+  observed_on:
+  - https://api.cosmos.bishopfox.com/
+  - https://api.cosmos.bishopfox.com/openapi.json
+  - https://api.cosmos.bishopfox.com/.well-known/oauth-protected-resource
+gaps:
+- >-
+  No RFC 9457 application/problem+json representation; the envelope carries no error code, type URI, or
+  correlation id, which limits machine remediation for agents.
+- >-
+  No public error reference page. Rate-limit (429) and validation (400/422) semantics are undocumented and
+  could not be observed anonymously.
+x-evidence:
+- url: https://api.cosmos.bishopfox.com/v5/findings
+  http_status: 401
+  content_type: application/json
+  fetched: '2026-08-02'
+- url: https://api.cosmos.bishopfox.com/v5/asset-view/domains
+  http_status: 401
+  content_type: application/json
+  fetched: '2026-08-02'
+- url: https://api.cosmos.bishopfox.com/openapi.json
+  http_status: 404
+  content_type: application/json
+  fetched: '2026-08-02'

@@ -1,0 +1,103 @@
+generated: '2026-08-02'
+method: searched
+source: live /.well-known/ probes across every apis.yml host
+probed: '2026-08-02'
+hosts:
+- host: https://bishopfox.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: bishop-fox-security.txt
+    spec: RFC 9116
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: ../llms/bishop-fox-llms.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.cosmos.bishopfox.com
+  note: >-
+    API gateway. Every unmatched path returns HTTP 404 with a JSON body {"message":"Not Found"};
+    authenticated v5 resources return HTTP 401 {"message":"Unauthorized"}.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /redoc
+    status: 404
+- host: https://bishopfox.auth0.com
+  note: >-
+    Auth0 tenant that issues Cosmos API access tokens. Anonymous discovery documents are published and were
+    harvested verbatim.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: bishop-fox-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: bishop-fox-oauth-authorization-server.json
+    spec: RFC 8414
+- host: https://cosmos.bishopfox.com
+  note: >-
+    Cosmos customer portal (Next.js single-page app). It answers HTTP 200 with the same HTML shell for every
+    path, including /.well-known/agent-card.json, /.well-known/agent.json, /openapi.json and /llms.txt.
+    Every one of those 200s is an SPA catch-all, NOT a published document, and all were rejected.
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    body: html
+    accepted: false
+    reason: SPA catch-all, not a JSON AgentCard
+  - path: /.well-known/agent.json
+    status: 200
+    body: html
+    accepted: false
+    reason: SPA catch-all, not a JSON AgentCard
+  - path: /.well-known/security.txt
+    status: 200
+    body: html
+    accepted: false
+    reason: SPA catch-all, not RFC 9116 text
+  - path: /openapi.json
+    status: 200
+    body: html
+    accepted: false
+    reason: SPA catch-all, not an OpenAPI document
+  - path: /llms.txt
+    status: 200
+    body: html
+    accepted: false
+    reason: SPA catch-all, not llms.txt

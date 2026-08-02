@@ -1,0 +1,99 @@
+generated: '2026-08-02'
+method: searched
+source: https://bishopfox.auth0.com/.well-known/openid-configuration
+docs: https://docs.brinqa.com/docs/connectors/bishopfox/
+note: >-
+  Bishop Fox publishes no OpenAPI for the Cosmos v5 API and its reference documentation sits behind the
+  authenticated Cosmos portal, so this profile is NOT derived from a spec. It is assembled from two evidenced
+  sources: the anonymous OIDC/RFC 8414 discovery documents served by the Bishop Fox Auth0 tenant (harvested
+  verbatim to well-known/), and the published third-party connector documentation for Cosmos (Brinqa,
+  Axonius). Live probes of api.cosmos.bishopfox.com confirm the API is reachable and rejects anonymous
+  requests with HTTP 401.
+summary:
+  types:
+  - oauth2
+  - http
+  api_key_in: []
+  oauth2_flows:
+  - clientCredentials
+  bearer_format: JWT
+  anonymous_access: false
+schemes:
+- name: CosmosOAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  token_url: https://bishopfox.auth0.com/oauth/token
+  audience: cosmos_public
+  credentials:
+    client_id: Cosmos API key
+    client_secret: Cosmos API secret
+    issued_from: Cosmos portal (https://cosmos.bishopfox.com/)
+  token_lifetime_seconds: 36000
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - client_secret_post
+  - private_key_jwt
+  scopes_documented: scopes/bishop-fox-scopes.yml
+  source: https://docs.brinqa.com/docs/connectors/bishopfox/
+- name: CosmosBearerToken
+  type: http
+  scheme: bearer
+  bearer_format: JWT
+  in: header
+  parameter_name: Authorization
+  description: >-
+    The access token returned by the Auth0 client-credentials exchange is sent on every Cosmos v5 request as
+    Authorization: Bearer <token>.
+  source: https://docs.brinqa.com/docs/connectors/bishopfox/
+authorization_server:
+  issuer: https://bishopfox.auth0.com/
+  vendor: Auth0
+  discovery:
+  - path: /.well-known/openid-configuration
+    file: ../well-known/bishop-fox-openid-configuration.json
+    http_status: 200
+  - path: /.well-known/oauth-authorization-server
+    file: ../well-known/bishop-fox-oauth-authorization-server.json
+    http_status: 200
+  authorization_endpoint: https://bishopfox.auth0.com/authorize
+  token_endpoint: https://bishopfox.auth0.com/oauth/token
+  revocation_endpoint: https://bishopfox.auth0.com/oauth/revoke
+  device_authorization_endpoint: https://bishopfox.auth0.com/oauth/device/code
+  jwks_uri: https://bishopfox.auth0.com/.well-known/jwks.json
+  userinfo_endpoint: https://bishopfox.auth0.com/userinfo
+  registration_endpoint: https://bishopfox.auth0.com/oidc/register
+  mfa_challenge_endpoint: https://bishopfox.auth0.com/mfa/challenge
+  grant_types_supported:
+  - client_credentials
+  - authorization_code
+  - refresh_token
+  - password
+  - implicit
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  code_challenge_methods_supported:
+  - S256
+  - plain
+  id_token_signing_alg_values_supported:
+  - HS256
+  - RS256
+  - PS256
+  backchannel_logout_supported: true
+x-evidence:
+- url: https://bishopfox.auth0.com/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-08-02'
+- url: https://bishopfox.auth0.com/.well-known/oauth-authorization-server
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-08-02'
+- url: https://api.cosmos.bishopfox.com/v5/findings
+  http_status: 401
+  body: '{"message":"Unauthorized"}'
+  fetched: '2026-08-02'
+- url: https://docs.brinqa.com/docs/connectors/bishopfox/
+  http_status: 200
+  kind: third-party connector documentation
+  fetched: '2026-08-02'

@@ -1,0 +1,86 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.brinqa.com/docs/connectors/bishopfox/
+also_source:
+- https://docs.axonius.com/docs/bishop-fox-adapter
+- https://bishopfox.auth0.com/.well-known/openid-configuration
+- live probes of https://api.cosmos.bishopfox.com (2026-08-02)
+api: Bishop Fox Cosmos API (v5)
+note: >-
+  Cross-cutting request/response semantics for the Cosmos v5 API. Bishop Fox publishes no OpenAPI and no
+  public reference, so every item below is either directly observed on the live API or documented in a
+  published third-party connector. Items we could not evidence are recorded as unknown rather than guessed.
+authentication:
+  style: OAuth 2.0 client credentials -> Bearer JWT
+  header: 'Authorization: Bearer <access_token>'
+  token_endpoint: https://bishopfox.auth0.com/oauth/token
+  audience: cosmos_public
+  token_lifetime_seconds: 36000
+  detail: authentication/bishop-fox-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v5
+  path_prefix: /v5/
+  previous: v1
+  previous_retired: '2025-12-05'
+  detail: lifecycle/bishop-fox-lifecycle.yml
+pagination:
+  styles:
+  - style: page-number
+    parallelizable: true
+    note: >-
+      Page-numbered resources can be fetched concurrently; published connectors default to 4 parallel
+      requests.
+  - style: cursor
+    parallelizable: false
+    note: Cursor-paginated resources must be walked sequentially.
+  default_page_size: 100
+  page_size_configurable: true
+  source: https://docs.brinqa.com/docs/connectors/bishopfox/
+tenancy:
+  model: organization-scoped
+  identifier: Bishop Fox organization UUID
+  note: >-
+    API consumers pass their organization identifier so results are scoped to the caller's organization;
+    both the Brinqa and Axonius connectors require it alongside the API key/secret.
+error_envelope:
+  format: proprietary-json
+  rfc9457: false
+  shape: '{"message": "<string>"}'
+  observed:
+  - {status: 401, body: '{"message":"Unauthorized"}', url: https://api.cosmos.bishopfox.com/v5/findings}
+  - {status: 404, body: '{"message":"Not Found"}', url: https://api.cosmos.bishopfox.com/openapi.json}
+  detail: errors/bishop-fox-problem-types.yml
+idempotency:
+  supported: unknown
+  note: >-
+    No idempotency-key header or replay contract is documented on any public Bishop Fox or third-party
+    connector surface, and no OpenAPI is published to derive one from. NOT asserted, and deliberately no
+    Idempotency pointer is wired in apis.yml.
+rate_limiting:
+  documented: false
+  headers: unknown
+  note: >-
+    Neither Bishop Fox nor the published connectors document a rate limit or rate-limit response headers.
+    Connectors instead expose a client-side concurrency setting (default 4 parallel requests), which implies
+    a server-side throttle exists but is not published.
+request_tracing:
+  request_id_header: unknown
+field_expansion:
+  supported: unknown
+webhooks:
+  supported: not-published
+  note: >-
+    Cosmos pushes findings outbound through first-party Jira and ServiceNow integrations (bi-directional
+    sync) rather than a documented customer-facing webhook or event subscription surface. No AsyncAPI and no
+    webhook catalog is published.
+media_type: application/json
+transport:
+  tls: TLSv1.3
+  base_url: https://api.cosmos.bishopfox.com/
+cross_links:
+  authentication: authentication/bishop-fox-authentication.yml
+  scopes: scopes/bishop-fox-scopes.yml
+  errors: errors/bishop-fox-problem-types.yml
+  lifecycle: lifecycle/bishop-fox-lifecycle.yml
+  data_model: data-model/bishop-fox-data-model.yml

@@ -1,0 +1,57 @@
+generated: '2026-08-02'
+method: searched
+source: https://docs.brinqa.com/docs/connectors/bishopfox/
+docs: https://docs.brinqa.com/docs/connectors/bishopfox/
+note: >-
+  Bishop Fox publishes no public scope reference — the Cosmos API documentation lives inside the
+  authenticated portal. The scope set below is the one granted to a Cosmos API key/secret pair as documented
+  by Brinqa's published Cosmos connector documentation, which records the scopes returned on the
+  client-credentials token for the cosmos_public audience. Not derived from an OpenAPI (none is published)
+  and not exhaustive — a Cosmos customer with portal access should confirm against the in-portal reference.
+schemes:
+- name: CosmosOAuth2ClientCredentials
+  type: oauth2
+  source: https://bishopfox.auth0.com/.well-known/openid-configuration
+  audience: cosmos_public
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://bishopfox.auth0.com/oauth/token
+scopes:
+- scope: get:assets
+  description: Read individual discovered attack-surface assets.
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+- scope: list:assets
+  description: List/enumerate discovered attack-surface assets across the asset-view resources.
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+- scope: update:assets
+  description: Update asset records (e.g. attribution, ownership, or state changes).
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+- scope: get:findings
+  description: Read validated Cosmos findings and finding definitions.
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+- scope: update:findings
+  description: Update findings (e.g. triage state, comments, remediation status).
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+- scope: read:ingest
+  description: Read ingestion configuration/state for customer-supplied seed data.
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+- scope: write:ingest
+  description: Submit seed data into the Cosmos ingestion pipeline.
+  flows: [clientCredentials]
+  sources: [https://docs.brinqa.com/docs/connectors/bishopfox/]
+summary:
+  scope_count: 7
+  pattern: verb:resource
+  verbs: [get, list, read, update, write]
+  resources: [assets, findings, ingest]
+x-evidence:
+- url: https://docs.brinqa.com/docs/connectors/bishopfox/
+  http_status: 200
+  fetched: '2026-08-02'
+  kind: third-party connector documentation

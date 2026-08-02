@@ -1,0 +1,90 @@
+generated: '2026-08-02'
+method: searched
+source: pkg.go.dev, formulae.brew.sh, PyPI, github.com/BishopFox
+note: >-
+  IMPORTANT — Bishop Fox ships NO first-party client library or SDK for the Cosmos v5 API. Every package
+  below is one of Bishop Fox's open-source offensive-security tools, verified live in a public registry.
+  They are first-party Bishop Fox software but they are NOT API clients, so this artifact deliberately does
+  NOT carry an `SDKs` pointer in apis.yml — wiring one would credit the provider with client libraries for an
+  API that has none. Registries probed with no first-party Cosmos client found: npm, PyPI, Maven Central,
+  NuGet, pkg.go.dev, RubyGems, Packagist, crates.io.
+sdk_count: 0
+sdk_note: No Cosmos API client library published in any registry, and none referenced in the Cosmos docs.
+packages:
+- language: go
+  registry: pkg.go.dev
+  name: github.com/BishopFox/sliver
+  url: https://pkg.go.dev/github.com/BishopFox/sliver
+  install: go install github.com/BishopFox/sliver@latest
+  official: true
+  kind: tool
+  category: adversary-emulation
+  description: Sliver adversary emulation / C2 framework.
+  repo: https://github.com/BishopFox/sliver
+  http_status: 200
+- language: go
+  registry: pkg.go.dev
+  name: github.com/BishopFox/cloudfox
+  url: https://pkg.go.dev/github.com/BishopFox/cloudfox
+  install: go install github.com/BishopFox/cloudfox@latest
+  official: true
+  kind: tool
+  category: cloud-security
+  description: Situational awareness automation for cloud penetration tests.
+  repo: https://github.com/BishopFox/cloudfox
+  http_status: 200
+- language: go
+  registry: homebrew
+  name: cloudfox
+  url: https://formulae.brew.sh/formula/cloudfox
+  install: brew install cloudfox
+  official: true
+  kind: tool
+  category: cloud-security
+  version_observed: 2.0.5
+  homepage: https://bishopfox.com/blog/introducing-cloudfox
+  http_status: 200
+- language: go
+  registry: pkg.go.dev
+  name: github.com/BishopFox/jsluice
+  url: https://pkg.go.dev/github.com/BishopFox/jsluice
+  install: go install github.com/BishopFox/jsluice/cmd/jsluice@latest
+  official: true
+  kind: tool
+  category: recon
+  description: Extract URLs, paths, secrets and other interesting bits from JavaScript.
+  repo: https://github.com/BishopFox/jsluice
+  http_status: 200
+- language: go
+  registry: pkg.go.dev
+  name: github.com/BishopFox/sj
+  url: https://pkg.go.dev/github.com/BishopFox/sj
+  install: go install github.com/BishopFox/sj@latest
+  official: true
+  kind: tool
+  category: api-security
+  description: >-
+    Swagger Jacker — audits endpoints defined in exposed Swagger/OpenAPI definition files.
+  repo: https://github.com/BishopFox/sj
+  http_status: 200
+source_only:
+- name: gcp-terraform-cloud-connector
+  repo: https://github.com/BishopFox/gcp-terraform-cloud-connector
+  description: >-
+    Terraform module for Cosmos customers implementing Google Cloud connector support. The only Cosmos-facing
+    first-party code artifact found; not published to the Terraform Registry (probe returned 404), so it is
+    consumed straight from the GitHub source.
+  license: Apache-2.0
+  official: true
+  kind: infrastructure-module
+rejected:
+- name: aimap (PyPI)
+  url: https://pypi.org/project/aimap/
+  reason: >-
+    Name collision. The PyPI package `aimap` is an unrelated bioinformatics project
+    (github.com/castualwang/aimap), not Bishop Fox's AI service discovery tool. Excluded.
+x-evidence:
+  fetched: '2026-08-02'
+  registries_probed: [pkg.go.dev, homebrew, pypi, terraform-registry]
+  org: https://github.com/BishopFox
+  tools_page: https://bishopfox.com/tools

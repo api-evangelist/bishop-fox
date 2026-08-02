@@ -1,0 +1,91 @@
+# https://bishopfox.com/ llms.txt
+
+Bishop Fox offensive security services help you find and fix vulnerabilities before they become incidents. 
+
+## Services Overview
+- [Services Overview](https://bishopfox.com/services): An overview of the various offensive security services offered by Bishop Fox, aimed at identifying and mitigating vulnerabilities.
+
+### Penetration Testing
+- [Pen Testing Overview](https://bishopfox.com/services/penetration-testing-services): A detailed introduction to penetration testing services, including methodologies and objectives.
+- [Application Penetration Testing](https://bishopfox.com/services/penetration-testing-services/application-penetration-testing): Focused assessment of application security to identify vulnerabilities.
+- [Mobile Application Assessment](https://bishopfox.com/services/penetration-testing-services/mobile-application-assessment): Specialized testing for mobile applications to ensure security against threats.
+- [Secure Code Review](https://bishopfox.com/services/penetration-testing-services/secure-code-review): A thorough examination of code to identify security flaws and vulnerabilities.
+
+### Cloud Security
+- [Cloud Security](https://bishopfox.com/services/penetration-testing-services/cloud-penetration-testing): Services designed to secure cloud environments and applications against potential threats.
+
+### Product Security
+- [Product Security](https://bishopfox.com/services/penetration-testing-services/product-security-review): Comprehensive security assessments for products to ensure they are resilient against attacks.
+
+### Network Security
+- [Network Security](https://bishopfox.com/services/penetration-testing-services/network-security): Services aimed at securing network infrastructures.
+  - [External Pen Testing](https://bishopfox.com/services/penetration-testing-services/external-penetration-testing): Testing the external network perimeter for vulnerabilities.
+  - [Internal Pen Testing](https://bishopfox.com/services/penetration-testing-services/internal-penetration-testing): Assessing internal networks to identify security weaknesses.
+
+### Partner Assessments
+- [Partner Assessments](https://bishopfox.com/services/vendor-assessments): Evaluations for partners to ensure compliance and security.
+  - [CASA & MASA](https://bishopfox.com/services/casa): Specific assessments for cloud and mobile application security.
+  - [Oracle Assessment](https://bishopfox.com/services/oracle-security-assessment): Security evaluations tailored for Oracle products.
+  - [ioXt Alliance Certification](https://bishopfox.com/services/ioxt-certification-program): Certification process for IoT devices ensuring security standards.
+
+## Advanced Security Services
+- [CTEM Overview](https://bishopfox.com/services/continuous-threat-exposure-management): Overview of Continuous Threat Exposure Management services.
+- [Attack Surface Discovery](https://bishopfox.com/services/continuous-threat-exposure-management/attack-surface-discovery): Identifying and mapping the attack surface of an organization.
+- [Attack Surface Testing](https://bishopfox.com/services/continuous-threat-exposure-management/attack-surface-testing): Testing the identified attack surface for vulnerabilities.
+- [Emerging Threats](https://bishopfox.com/services/continuous-threat-exposure-management/emerging-threat-services): Insights into new and evolving threats in the cybersecurity landscape.
+- [Red Team & Readiness Overview](https://bishopfox.com/services/red-teaming): Overview of red teaming services to test organizational readiness.
+  - [Social Engineering](https://bishopfox.com/services/red-teaming/social-engineering): Assessing susceptibility to social engineering attacks.
+  - [Ransomware Readiness](https://bishopfox.com/services/red-teaming/ransomware-readiness): Evaluating preparedness against ransomware threats.
+  - [IR Tabletop Exercises](https://bishopfox.com/services/red-teaming/tabletop-exercise): Simulated exercises to prepare for incident response.
+
+## Cosmos Platform
+- [Cosmos Platform](https://bishopfox.com/services/cosmos): A platform for managing security assessments and vulnerabilities.
+  - [Cosmos Attack Surface Management](https://bishopfox.com/cosmos-attack-surface-management-casm): Tools for managing and assessing attack surfaces.
+  - [Cosmos Application Penetration Testing](https://bishopfox.com/services/cosmos/cosmos-application-penetration-testing-capt): Application security testing integrated within the Cosmos platform.
+  - [Cosmos External Penetration Testing](https://bishopfox.com/services/cosmos/cosmos-external-penetration-testing-cept): External testing services offered through the Cosmos platform.
+
+## Resources and Events
+- [Get The Report](https://bishopfox.com/resources/gigaom-asm-2025-report): Access to detailed reports on security assessments.
+- [See All Events](https://bishopfox.com/events): A list of upcoming events related to cybersecurity.
+  - [Conferences](https://bishopfox.com/events/conference): Information on conferences hosted or attended by Bishop Fox.
+  - [Technical Briefings](https://bishopfox.com/events/technical-briefing): In-depth briefings on technical topics in cybersecurity.
+  - [Virtual Sessions](https://bishopfox.com/events/virtual-sessions): Online sessions covering various cybersecurity topics.
+  - [Workshops & Training](https://bishopfox.com/events/workshop-training): Hands-on training sessions for skill development.
+  - [Executive Briefings](https://bishopfox.com/events/executive-briefing): Tailored briefings for executives on security matters.
+  - [Community Events](https://bishopfox.com/events/community-event): Events aimed at engaging with the cybersecurity community.
+
+## Additional Resources
+- [Watch Now](https://bishopfox.com/resources/breaking-ai-inside-the-art-of-llm-pen-testing): Access to video content related to Bishop Fox services.
+- [See All Resources](https://bishopfox.com/resources): A comprehensive list of resources available for further learning.
+- [Blog](https://bishopfox.com/blog): Insights and articles on various cybersecurity topics.
+- [Customer Stories](https://bishopfox.com/resources/customer-stories): Case studies showcasing successful engagements with clients.
+- [Bishop Fox Labs](https://bishopfox.com/labs): Research and development initiatives within Bishop Fox.
+- [Open-Source Tools](https://bishopfox.com/tools): Tools developed by Bishop Fox available for public use.
+- [Cybersecurity Style Guide](https://bishopfox.com/cybersecurity-style-guide): Guidelines for maintaining consistency in cybersecurity documentation.
+- [View Guide](https://bishopfox.com/resources/llm-assisted-vulnerability-research): Access to the Cybersecurity Style Guide.
+
+## Company Information
+- [Company Overview](https://bishopfox.com/company): General information about Bishop Fox and its mission.
+- [Customers](https://bishopfox.com/customers): A list of notable customers served by Bishop Fox.
+- [Partner Program](https://bishopfox.com/partners): Information on how to become a partner with Bishop Fox.
+  - [Become a Partner](https://bishopfox.com/partners/become-a-partner): Steps and requirements for partnership.
+
+## Contact and Career Opportunities
+- [Contact Us](https://bishopfox.com/contact): Information on how to get in touch with Bishop Fox.
+- [Newsroom](https://bishopfox.com/news): Latest news and updates from Bishop Fox.
+- [Career Opportunities](https://bishopfox.com/careers): Current job openings at Bishop Fox.
+- [Educational Programs](https://bishopfox.com/company/internships): Programs aimed at educating individuals in cybersecurity.
+
+## Legal and Privacy
+- [Privacy Policy](https://bishopfox.com/privacy-statement): Details on how Bishop Fox handles user data and privacy.
+- [Responsible Disclosure Statement](https://bishopfox.com/vulnerability-disclosure-policy): Guidelines for reporting security vulnerabilities.
+- [Cookie Settings](javascript:void(0)): Information on cookie usage and settings.
+
+## Tools and Frameworks
+- [Zigdiggity Zigbee Network and IoT Hacking Tool](https://bishopfox.com/tools/zigdiggity): A tool for testing the security of Zigbee networks and IoT devices.
+- [Introducing the Sliver Framework written in Golang](https://bishopfox.com/blog/sliver): Overview of the Sliver Framework for offensive security.
+- [GadgetProbe: Exploiting Deserialization to Brute-Forceâ€¦](https://bishopfox.com/blog/gadgetprobe): Insights into exploiting deserialization vulnerabilities.
+- [Cosmos: Protecting the Perimeter Research Report](https://bishopfox.com/cosmos-report): Research findings on perimeter security.
+
+## Resource Center
+- [Bishop Fox Resource Center](https://bishopfox.com/resource-center): A centralized hub for accessing various resources and tools provided by Bishop Fox.

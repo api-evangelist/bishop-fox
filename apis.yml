@@ -1,18 +1,73 @@
 aid: bishop-fox
 name: Bishop Fox
-description: 'Bishop Fox is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Bishop Fox is an offensive security firm delivering penetration testing, red teaming, application and
+  cloud security assessment, and continuous threat exposure management. Its managed Cosmos platform keeps a
+  living inventory of an organization's external attack surface — domains, subdomains, DNS records, network
+  ranges, IP addresses, open ports, and IP/hostname services — pairing continuous automated discovery with
+  human operator validation so customers receive triaged, exploitable findings instead of scanner noise.
+  Customers consume Cosmos data programmatically through the authenticated Cosmos v5 REST API at
+  api.cosmos.bishopfox.com, secured with OAuth 2.0 client-credentials tokens issued by Bishop Fox's Auth0
+  tenant against the cosmos_public audience, and through bi-directional Jira and ServiceNow integrations plus
+  AWS, GCP, Azure, Cloudflare, and Oracle cloud connectors. Bishop Fox also publishes a widely used
+  open-source offensive-security toolkit — Sliver, CloudFox, sj (Swagger Jacker), jsluice, and aimap — from
+  its GitHub organization.
+image: https://assets.bishopfox.com/prod-1437/Images/og/_1200x630_crop_center-center_82_none/services-v1.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bishop-fox/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- cybersecurity
+- offensive-security
+- penetration-testing
+- attack-surface-management
+- exposure-management
+- red-teaming
+- vulnerability-management
+- security-findings
+- asset-discovery
+- continuous-threat-exposure-management
+- oauth2
+apis:
+- name: Bishop Fox Cosmos API (v5)
+  description: >-
+    Authenticated REST API for the Bishop Fox Cosmos attack-surface management platform. Exposes the
+    customer's discovered asset inventory through /v5/asset-view/* resources (domains, subdomains,
+    dns-records, networks, ip-addresses, ports, ip-services, hostname-services), validated findings via
+    /v5/findings, and platform activity via /v5/activities. Access is by OAuth 2.0 client-credentials
+    (API key + API secret exchanged for a bearer token at the Bishop Fox Auth0 tenant, audience
+    cosmos_public); the reference documentation is published inside the authenticated Cosmos portal. The v1
+    API was retired on 2025-12-05.
+  humanURL: https://bishopfox.com/services/cosmos
+  baseURL: https://api.cosmos.bishopfox.com/
+  tags:
+  - attack-surface-management
+  - security-findings
+  - asset-discovery
+  - exposure-management
+  - cybersecurity
+  - oauth2
+  properties:
+  - type: Authentication
+    url: authentication/bishop-fox-authentication.yml
+  - type: OAuthScopes
+    url: scopes/bishop-fox-scopes.yml
+  - type: Conventions
+    url: conventions/bishop-fox-conventions.yml
+  - type: ErrorCatalog
+    url: errors/bishop-fox-problem-types.yml
+  - type: DataModel
+    url: data-model/bishop-fox-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/bishop-fox-lifecycle.yml
+  - type: Conformance
+    url: conformance/bishop-fox-conformance.yml
+  - type: Portal
+    url: https://cosmos.bishopfox.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +75,51 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/bishop-fox_stock/
+  url: https://bishopfox.com/
+- type: Portal
+  url: https://cosmos.bishopfox.com/
+- type: Login
+  url: https://cosmos.bishopfox.com/
+- type: Blog
+  url: https://bishopfox.com/blog
+- type: Support
+  url: https://bishopfox.com/support
+- type: GitHubOrganization
+  url: https://github.com/BishopFox
+- type: PrivacyPolicy
+  url: https://bishopfox.com/privacy-statement
+- type: Security
+  url: https://bishopfox.com/vulnerability-disclosure-policy
+- type: VulnerabilityDisclosure
+  url: security/bishop-fox-vulnerability-disclosure.yml
+- type: SecurityTxt
+  url: well-known/bishop-fox-security.txt
+- type: WellKnown
+  url: well-known/bishop-fox-well-known.yml
+- type: DomainSecurity
+  url: security/bishop-fox-domain-security.yml
+- type: LLMsTxt
+  url: llms/bishop-fox-llms.txt
+- type: Authentication
+  url: authentication/bishop-fox-authentication.yml
+- type: OAuthScopes
+  url: scopes/bishop-fox-scopes.yml
+- type: Conventions
+  url: conventions/bishop-fox-conventions.yml
+- type: ErrorCatalog
+  url: errors/bishop-fox-problem-types.yml
+- type: DataModel
+  url: data-model/bishop-fox-data-model.yml
+- type: Lifecycle
+  url: lifecycle/bishop-fox-lifecycle.yml
+- type: Conformance
+  url: conformance/bishop-fox-conformance.yml
+- type: Packages
+  url: packages/bishop-fox-packages.yml
+- type: OpenSourceTools
+  url: https://bishopfox.com/tools
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
