@@ -12,6 +12,17 @@ description: >-
   AWS, GCP, Azure, Cloudflare, and Oracle cloud connectors. Bishop Fox also publishes a widely used
   open-source offensive-security toolkit — Sliver, CloudFox, sj (Swagger Jacker), jsluice, and aimap — from
   its GitHub organization.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://assets.bishopfox.com/prod-1437/Images/og/_1200x630_crop_center-center_82_none/services-v1.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bishop-fox/refs/heads/main/apis.yml
 x-type: company
