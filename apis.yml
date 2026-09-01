@@ -33,15 +33,15 @@ modified: '2026-08-02'
 tags:
 - Company
 - Cybersecurity
-- offensive-security
-- penetration-testing
-- attack-surface-management
-- exposure-management
-- red-teaming
-- vulnerability-management
-- security-findings
-- asset-discovery
-- continuous-threat-exposure-management
+- Offensive Security
+- Penetration Testing
+- Attack Surface Management
+- Exposure Management
+- Red Teaming
+- Vulnerability Management
+- Security Findings
+- Asset Discovery
+- Continuous Threat Exposure Management
 - Authentication
 tags_raw:
 - Company
@@ -69,10 +69,10 @@ apis:
   humanURL: https://bishopfox.com/services/cosmos
   baseURL: https://api.cosmos.bishopfox.com/
   tags:
-  - attack-surface-management
-  - security-findings
-  - asset-discovery
-  - exposure-management
+  - Attack Surface Management
+  - Security Findings
+  - Asset Discovery
+  - Exposure Management
   - Cybersecurity
   - Authentication
   tags_raw:
