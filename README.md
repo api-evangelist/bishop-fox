@@ -64,46 +64,96 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bishop Fox is an offensive security firm delivering penetration testing, red teaming, application and cloud
-security assessment, and continuous threat exposure management. Its managed **Cosmos** platform keeps a
-living inventory of an organization's external attack surface — domains, subdomains, DNS records, network
-ranges, IP addresses, open ports, and IP/hostname services — pairing continuous automated discovery with
-human operator validation so customers receive triaged, exploitable findings instead of scanner noise.
+Bishop Fox is an offensive security firm delivering penetration testing, red teaming, application and cloud security assessment, and continuous threat exposure management. Its managed Cosmos platform keeps a living inventory of an organization's external attack surface — domains, subdomains, DNS records, network ranges, IP addresses, open ports, and IP/hostname services — pairing continuous automated discovery with human operator validation so customers receive triaged, exploitable findings instead of scanner noise. Customers consume Cosmos data programmatically through the authenticated Cosmos v5 REST API at api.cosmos.bishopfox.com, secured with OAuth 2.0 client-credentials tokens issued by Bishop Fox's Auth0 tenant against the cosmos_public audience, and through bi-directional Jira and ServiceNow integrations plus AWS, GCP, Azure, Cloudflare, and Oracle cloud connectors. Bishop Fox also publishes a widely used open-source offensive-security toolkit — Sliver, CloudFox, sj (Swagger Jacker), jsluice, and aimap — from its GitHub organization.
 
-- Website: https://bishopfox.com/
-- Cosmos platform: https://bishopfox.com/services/cosmos
-- Cosmos portal: https://cosmos.bishopfox.com/
-- GitHub: https://github.com/BishopFox
-- Open source tools: https://bishopfox.com/tools
-- Vulnerability disclosure policy: https://bishopfox.com/vulnerability-disclosure-policy
+**Areas:** Company · Cybersecurity · Offensive Security · Penetration Testing · Attack Surface Management · Exposure Management · Red Teaming · Vulnerability Management · Security Findings · Asset Discovery · Continuous Threat Exposure Management · Authentication
 
-## API surface
+## Bishop Fox on APIs.io
 
-| | |
+Everything profiled for Bishop Fox is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bishop-fox/](https://apis.io/providers/bishop-fox/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Bishop Fox Cosmos API (v5)](https://apis.io/apis/bishop-fox/bishop-fox-cosmos-api-v5/) — Authenticated REST API for the Bishop Fox Cosmos attack-surface management platform. Exposes the customer's discovered asset inventory through…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bishop Fox Authentication](https://apis.io/security/bishop-fox/bishop-fox-authentication/)
+- [Bishop Fox Domain Security](https://apis.io/security/bishop-fox/bishop-fox-domain-security/)
+- [Bishop Fox Vulnerability Disclosure](https://apis.io/security/bishop-fox/bishop-fox-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Bishop Fox Scopes](https://apis.io/scopes/bishop-fox/bishop-fox-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://bishopfox.com/)
+- [Support](https://bishopfox.com/support)
+- [Blog](https://bishopfox.com/blog)
+- [Security](https://bishopfox.com/vulnerability-disclosure-policy)
+- [Privacy policy](https://bishopfox.com/privacy-statement)
+- [GitHub](https://github.com/BishopFox)
+
+## API Evangelist rating
+
+**Kin Score 23.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| API | Bishop Fox Cosmos API (v5) |
-| Base URL | `https://api.cosmos.bishopfox.com/` |
-| Auth | OAuth 2.0 client credentials → Bearer JWT (`https://bishopfox.auth0.com/oauth/token`, audience `cosmos_public`) |
-| Reference docs | Portal-gated (inside `cosmos.bishopfox.com`) |
-| OpenAPI | **Not published** — see `well-known/bishop-fox-well-known.yml` for the full probe table |
-| Previous version | v1, retired 2025-12-05 |
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 23.7 |
 
-The API is live and reachable: `/v5/*` resources return `401 {"message":"Unauthorized"}` to anonymous
-callers. No OpenAPI, AsyncAPI, GraphQL, MCP server, or A2A agent card is published anywhere on
-`bishopfox.com`, `api.cosmos.bishopfox.com`, or `cosmos.bishopfox.com`.
+**Agent readiness 18.0** — agent-aware
 
-## Artifacts
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
 
-| Dir | File | Method |
-|---|---|---|
-| `llms/` | `bishop-fox-llms.txt` | searched (verbatim from `bishopfox.com/llms.txt`) |
-| `well-known/` | `bishop-fox-security.txt`, `bishop-fox-openid-configuration.json`, `bishop-fox-oauth-authorization-server.json`, `bishop-fox-well-known.yml` | searched |
-| `authentication/` | `bishop-fox-authentication.yml` | searched |
-| `scopes/` | `bishop-fox-scopes.yml` | searched |
-| `conventions/` | `bishop-fox-conventions.yml` | searched |
-| `errors/` | `bishop-fox-problem-types.yml` | probed (live 401/404 envelopes) |
-| `lifecycle/` | `bishop-fox-lifecycle.yml` | searched |
-| `conformance/` | `bishop-fox-conformance.yml` | derived |
-| `data-model/` | `bishop-fox-data-model.yml` | searched |
-| `packages/` | `bishop-fox-packages.yml` | searched |
-| `security/` | `bishop-fox-domain-security.yml`, `bishop-fox-vulnerability-disclosure.yml` | probed / searched |
+**Regulatory alignment 36.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bishop-fox/](https://apis.io/providers/bishop-fox/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bishop Fox: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bishop-fox/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
